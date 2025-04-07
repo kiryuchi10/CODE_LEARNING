@@ -1,4 +1,12 @@
 
+var createHelloWorld = function() {
+    console.log("Hello World");
+    return function(...args){
+        return "Hello World";
+    }
+}
+
+
 var reduce = (init, arr) {
 
 }
