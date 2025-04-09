@@ -9,3 +9,15 @@ var createHelloWorld = function() {
 }
 
 createHelloWorld();
+
+var function1 = function(a,b){
+    return (a,b) =>
+    {
+        return a+b;
+    }
+}
+
+var function2 = function(a,b){
+    let sum = a+b;
+    return sum;
+}

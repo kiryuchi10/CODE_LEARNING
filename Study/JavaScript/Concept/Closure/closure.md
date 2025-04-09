@@ -17,6 +17,9 @@ Closures are a powerful feature in JavaScript that allow an inner function to ac
 
 ---
 
+## Why Use Closures?
+   
+
 ## Basic Example: A Counter
 
 This example shows a typical use-case where an inner function modifies a variable declared in an outer function.
