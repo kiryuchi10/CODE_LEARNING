@@ -11,8 +11,11 @@ Welcome to the JavaScript Study guide. This resource covers essential JavaScript
 
 2. **[Functions & Scope](Concept/Functions.md)**  
    Explore how functions work, including scope and execution context.  
-   - **[Closures Documentation](Concept/Closure/closure.md)**  
+   - **[Function Declarations and Expressions](Concept/FunctionsAndForms.md)**
+   - **[Closures Documentation](Concept/closure.md)**  
      Understand how inner functions capture the outer function's variables and how closures enable data privacy and state maintenance.
+   - **[Higher Order Function](Concept/higher_order_functions.md)**
+
 
 3. **[Objects & Arrays](Concept/ObjectsArrays.md)**  
    Study JavaScript objects, arrays, and methods for manipulating these data structures.
