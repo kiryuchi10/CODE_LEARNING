@@ -1,87 +1,160 @@
-# Function Declarations and Expressions
 
-This document is part of the **Functions & Scope** section in the JavaScript Study guide. It covers all the common ways of declaring functions in JavaScript, explains the underlying principles, and includes examples for each form.
+# Functions and Forms in JavaScript
 
----
+## 1. Functions
 
-## Overview
+A **function** is a block of code designed to perform a particular task. Functions are reusable and can be invoked or called when needed.
 
-Functions are one of the core building blocks in JavaScript. They allow you to encapsulate code, promote reusability, and form the foundation of abstraction in the language. In JavaScript, functions are **first-class citizens**, meaning they can be treated as values—passed as arguments, returned from other functions, and assigned to variables.
+### Function Declaration
 
-This guide covers the following forms of function declarations:
-
-1. [Function Declarations](#function-declarations)
-2. [Function Expressions](#function-expressions)
-   - Anonymous Function Expressions
-   - Named Function Expressions
-3. [Arrow Functions](#arrow-functions)
-4. [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
-5. [Generator Functions](#generator-functions)
-6. [Async Functions](#async-functions)
-7. [Async Generator Functions](#async-generator-functions)
-
-Each form has its own use cases and nuances such as hoisting behavior, lexical scoping, and differences in handling the `this` keyword.
-
----
-
-## Function Declarations
-
-### Syntax
+A function declaration defines a function with a specified name. 
 
 ```js
-function functionName(parameters) {
-  // Function body
+function greet(name) {
+  console.log("Hello, " + name);
 }
+greet("Alice"); // Output: Hello, Alice
 ```
-### Example
+
+### Function Expression
+
+A function expression defines a function inside an expression. 
 
 ```js
-function add(a, b) {
-  return a + b;
+const greet = function(name) {
+  console.log("Hello, " + name);
+};
+greet("Bob"); // Output: Hello, Bob
+```
+
+### Arrow Function
+
+An arrow function is a concise way to write function expressions. It does not have its own `this` value.
+
+```js
+const greet = (name) => {
+  console.log("Hello, " + name);
+};
+greet("Charlie"); // Output: Hello, Charlie
+```
+
+## 2. Higher-Order Functions
+
+A **higher-order function** is a function that either takes one or more functions as arguments, returns a function, or both.
+
+### Examples:
+
+#### 1. filter()
+
+Returns a new array with only the elements that pass a test in the callback.
+
+```js
+const nums = [1, 2, 3, 4];
+const evens = nums.filter(n => n % 2 === 0); // [2, 4]
+```
+
+#### 2. reduce()
+
+Accumulates array values into a single result.
+
+```js
+const nums = [1, 2, 3, 4];
+const sum = nums.reduce((acc, curr) => acc + curr, 0); // 10
+```
+
+#### 3. forEach()
+
+Executes a callback for each element in the array.
+
+```js
+const fruits = ['apple', 'banana'];
+fruits.forEach(fruit => console.log(fruit));
+// Output: apple
+//         banana
+```
+
+#### 4. some() / every()
+
+- `some()` returns `true` if at least one element satisfies the condition.
+- `every()` returns `true` if all elements satisfy the condition.
+
+```js
+const nums = [1, 2, 3];
+console.log(nums.some(n => n > 2)); // true
+console.log(nums.every(n => n > 0)); // true
+```
+
+#### 5. find() / findIndex()
+
+- `find()` returns the first element that satisfies the condition.
+- `findIndex()` returns the index of the first satisfying element.
+
+```js
+const users = [{id: 1}, {id: 2}];
+console.log(users.find(u => u.id === 2)); // {id: 2}
+```
+
+## 3. Returning Functions from Functions
+
+Higher-order functions can also return functions:
+
+```js
+function multiplyBy(factor) {
+  return function(num) {
+    return num * factor;
+  };
 }
-console.log(add(2, 3)); // 5
+
+const double = multiplyBy(2);
+console.log(double(5)); // 10
 ```
 
-### Principles
-   - **[Hoisting]**  Function declarations are hoisted completely, so they can be invoked before their definition in the code.
-   - **[Readability]**
-     They clearly indicate the intent to create a reusable block of code.
+## 4. Forms in JavaScript
 
-## Function Expressions
+Forms are essential components of web pages for collecting user input. The JavaScript `HTMLFormElement` interface represents an HTML form element, and methods can be used to access and modify form data.
 
-### Anonymous Function Expression
+### Getting Form Data
+
+You can get data from form elements like `<input>`, `<select>`, and `<textarea>`.
 
 ```js
-const functionName = function(parameters) {
-  // Function body
-};
+const form = document.querySelector("form");
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+  const name = form.querySelector("input[name='name']").value;
+  console.log(name); // Output the value of the 'name' input field
+});
 ```
 
-### Example
-```js
-const multiply = function(a, b) {
-  return a * b;
-};
-console.log(multiply(3, 4)); // 12
-```
+### Validating Forms
 
-## Named Function Expression
+You can validate form data before submission using JavaScript.
 
 ```js
-const functionName = function actualName(parameters) {
-  // Function body
-};
+const form = document.querySelector("form");
+form.addEventListener("submit", function(event) {
+  const email = form.querySelector("input[name='email']").value;
+  if (!email.includes("@")) {
+    alert("Invalid email!");
+    event.preventDefault(); // Stop form submission
+  }
+});
 ```
 
-### Example
+### Modifying Form Elements
+
+You can change values of form elements via JavaScript.
+
 ```js
-const divide = function div(a, b) {
-  return a / b;
-};
-console.log(divide(10, 2)); // 5
+document.querySelector("input[name='name']").value = "John Doe"; // Set value
+document.querySelector("input[name='age']").disabled = true; // Disable input
 ```
 
-### Principles
-   - **[First-Class Function]**  Functions are treated as values, enabling passing them as arguments and storing them in variables.
-   - **[Scope and Hoisting]**
-     Function expressions are not hoisted like function declarations—they are created at runtime.
+### Form Submission
+
+You can programmatically submit a form.
+
+```js
+const form = document.querySelector("form");
+form.submit(); // Submit form programmatically
+```
