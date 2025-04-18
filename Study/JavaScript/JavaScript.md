@@ -41,13 +41,18 @@ Welcome to the JavaScript Study guide. This resource covers essential JavaScript
    Dive into interacting with the Document Object Model (DOM) to dynamically modify web pages.
 
 10. **[Error Handling](Concept/ErrorHandling.md)**  
-    Learn how to handle errors gracefully using try/catch, throw, and finally.
+    Learn how to handle errors gracefully using try/catch, throw, and finally. And more.
 
 11. **[Event Loop & Concurrency](Concept/EventLoop.md)**  
     Explore how JavaScript manages asynchronous tasks using the event loop, microtasks, and macrotasks.
 
 12. **[Fetch API & AJAX](Concept/Fetch.md)**  
     Review methods for communicating with external servers via AJAX and the Fetch API.
+
+12. **[Miscellaneous]**
+      - **[for-of-loop-explanation](Concept/for-of-loop-explanation.md)**  
+  
+
 
 ---
 
