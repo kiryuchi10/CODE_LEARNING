@@ -7,14 +7,14 @@ function App() {
   const [form, setForm] = useState({ name: '', age: '', lat: '', lon: '' })
 
   useEffect(() => {
-    axios.get('http://localhost:5000/missing')
+    axios.get('http://192.168.1.22:5000/missing')
       .then(res => setMarkers(res.data))
       .catch(err => console.error(err))
   }, [])
 
   function handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:5000/report', form)
+    axios.post('http://192.168.1.22:5000/report', form)
       .then(() => {
         alert('Reported successfully')
         setMarkers([...markers, form])
