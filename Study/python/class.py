@@ -11,3 +11,4 @@ room_1 = Rectangle()
 room_1.length = 10 
 room_1.width = 15 
 print("Room 1's area:", room_1.area())
+print("Room 1's area:", room_1.area())
