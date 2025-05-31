@@ -4,7 +4,8 @@ import { Container, Typography, CircularProgress } from '@mui/material';
 function App() {
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [cleaning, setCleaning] = useState("");
+ 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
