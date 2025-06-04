@@ -1,28 +1,21 @@
-// Resume.jsx
-// 백엔드에서 이력서 데이터를 불러와서 렌더링
+import React from 'react';
+import './Resume.css'; // 선택 사항
 
-import React, { useEffect, useState } from "react";
-
-const Resume = () => {
-  const [resumeItems, setResumeItems] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/resume")
-      .then((res) => res.json())
-      .then((data) => setResumeItems(data));
-  }, []);
-
+function Resume() {
   return (
-    <div className="page">
-      <h2>이력서 (Resume)</h2>
-      {resumeItems.map((item) => (
-        <div key={item.id}>
-          <h4>{item.title}</h4>
-          <p>{item.content}</p>
-        </div>
-      ))}
+    <div className="resume-container">
+      <h2>📄 Resume</h2>
+      <p>You can download my resume as a PDF below:</p>
+
+      <a
+        href="/resume/DONG_HYEUN_LEE_Resume.pdf"
+        download="Donghyeun_Lee_Resume.pdf"
+        className="download-btn"
+      >
+        ⬇️ Download Resume
+      </a>
     </div>
   );
-};
+}
 
 export default Resume;

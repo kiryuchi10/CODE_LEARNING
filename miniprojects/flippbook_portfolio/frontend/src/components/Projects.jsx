@@ -1,52 +1,55 @@
-// Projects.jsx
-// 이미지/영상 파일 업로드 및 프로젝트 목록 렌더링
+import React from 'react';
+import './Projects.css';
 
-import React, { useState, useEffect } from "react";
+const projects = [
+  {
+    title: "Smart Sensor Dashboard",
+    description: "Real-time monitoring app using React + FastAPI.",
+    videoUrl: "https://www.youtube.com/embed/Oo8nFMw2Wmg",
+    stack: ["React", "FastAPI", "MySQL", "Chart.js"],
+    github: "https://github.com/yourrepo/smart-sensor",
+    demo: "https://smart-sensor.netlify.app"
+  },
+  {
+    title: "Pixel Art Generator",
+    description: "Upload an image and convert it to 8-bit pixel art.",
+    videoUrl: "https://www.youtube.com/embed/TJ0BfS4gJkY",
+    stack: ["React", "FastAPI", "Pillow"],
+    github: "https://github.com/yourrepo/pixel-art",
+    demo: ""
+  }
+];
 
-const Projects = () => {
-  const [uploadedUrl, setUploadedUrl] = useState("");
-
-  const handleUpload = async (e) => {
-    const selectedFile = e.target.files[0];
-    if (!selectedFile) return;
-
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-
-    const res = await fetch("http://localhost:8000/upload_file", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await res.json();
-    setUploadedUrl(`http://localhost:8000/uploads/${data.filename}`);
-    alert(`파일 업로드 성공: ${data.filename}`);
-  };
-
+function Projects() {
   return (
-    <div className="page">
-      <h2>프로젝트</h2>
-      <ul>
-        <li>Smart Sensor Dashboard</li>
-        <li>Pixel Art Generator</li>
-        <li>Missing Person Finder</li>
-      </ul>
-
-      <hr />
-      <h3>파일 업로드 (이미지/영상)</h3>
-      <input type="file" onChange={handleUpload} />
-      {uploadedUrl && (
-        <div>
-          <p>미리보기:</p>
-          {uploadedUrl.match(/\.(mp4|webm)$/) ? (
-            <video width="300" controls src={uploadedUrl}></video>
-          ) : (
-            <img src={uploadedUrl} alt="업로드된 미리보기" width="300" />
-          )}
+    <div className="projects-container">
+      <h2>🛠 Software Projects</h2>
+      {projects.map((p, idx) => (
+        <div key={idx} className="project-card">
+          <div className="video-wrapper">
+            <iframe
+              width="360"
+              height="203"
+              src={p.videoUrl}
+              title={p.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="project-info">
+            <h3>{p.title}</h3>
+            <p>{p.description}</p>
+            <p><strong>Stack:</strong> {p.stack.join(', ')}</p>
+            <div className="project-links">
+              <a href={p.github} target="_blank" rel="noreferrer">🔗 GitHub</a>
+              {p.demo && <a href={p.demo} target="_blank" rel="noreferrer">🌐 Live Demo</a>}
+            </div>
+          </div>
         </div>
-      )}
+      ))}
     </div>
   );
-};
+}
 
 export default Projects;
