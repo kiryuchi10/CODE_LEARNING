@@ -1,7 +1,7 @@
 // ContactForm.jsx
 // 사용자로부터 이름, 이메일, 메시지를 받아 백엔드로 전송
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
