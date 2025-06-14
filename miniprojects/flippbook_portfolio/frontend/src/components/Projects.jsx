@@ -1,55 +1,25 @@
-import React from 'react';
-import './Projects.css';
-
-const projects = [
+// frontend/src/components/Projects.jsx
+export const projects = [
   {
-    title: "Smart Sensor Dashboard",
+    name: "Smart Sensor Dashboard",
     description: "Real-time monitoring app using React + FastAPI.",
-    videoUrl: "https://www.youtube.com/embed/Oo8nFMw2Wmg",
-    stack: ["React", "FastAPI", "MySQL", "Chart.js"],
-    github: "https://github.com/yourrepo/smart-sensor",
-    demo: "https://smart-sensor.netlify.app"
+    tags: [
+      { name: "React", color: "text-blue-500" },
+      { name: "FastAPI", color: "text-green-500" },
+      { name: "MySQL", color: "text-yellow-500" },
+    ],
+    image: "/images/sensor_dashboard.png",
+    sourceCodeLink: "https://github.com/yourrepo/smart-sensor",
   },
   {
-    title: "Pixel Art Generator",
+    name: "Pixel Art Generator",
     description: "Upload an image and convert it to 8-bit pixel art.",
-    videoUrl: "https://www.youtube.com/embed/TJ0BfS4gJkY",
-    stack: ["React", "FastAPI", "Pillow"],
-    github: "https://github.com/yourrepo/pixel-art",
-    demo: ""
-  }
+    tags: [
+      { name: "React", color: "text-pink-500" },
+      { name: "FastAPI", color: "text-green-500" },
+      { name: "Pillow", color: "text-yellow-500" },
+    ],
+    image: "/images/pixel_art.png",
+    sourceCodeLink: "https://github.com/yourrepo/pixel-art",
+  },
 ];
-
-function Projects() {
-  return (
-    <div className="projects-container">
-      <h2>🛠 Software Projects</h2>
-      {projects.map((p, idx) => (
-        <div key={idx} className="project-card">
-          <div className="video-wrapper">
-            <iframe
-              width="360"
-              height="203"
-              src={p.videoUrl}
-              title={p.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="project-info">
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
-            <p><strong>Stack:</strong> {p.stack.join(', ')}</p>
-            <div className="project-links">
-              <a href={p.github} target="_blank" rel="noreferrer">🔗 GitHub</a>
-              {p.demo && <a href={p.demo} target="_blank" rel="noreferrer">🌐 Live Demo</a>}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default Projects;

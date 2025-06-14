@@ -5,8 +5,8 @@ import NavigationBar from './components/NavigationBar';
 import Cover from './components/Cover';
 import Profile from './components/Profile';
 import Resume from './components/Resume';
-import Projects from './components/Projects';
 import ContactForm from './components/ContactForm';
+import Works from './components/Works';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Cover />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<Works />} />
           <Route path="/contact" element={<ContactForm />} />
         </Routes>
       </div>
