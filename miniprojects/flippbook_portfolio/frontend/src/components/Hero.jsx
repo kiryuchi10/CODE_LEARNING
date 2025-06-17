@@ -1,51 +1,31 @@
 import React from "react";
-import { motion } from "framer-motion";
-
-import { styles } from "../../constants/styles";
-import { ComputersCanvas } from "../canvas";
-import { config } from "../../constants/config";
+import { ComputerCanvas } from "../canvas/ComputerCanvas";
+import { config } from "../constants/config";
 
 const Hero = () => {
   return (
-    <section className={`relative mx-auto h-screen w-full`}>
-      {/* Text Container */}
-      <div
-        className={`absolute inset-0 top-[120px] mx-auto max-w-7xl ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-        <div className="mt-5 flex flex-col items-center justify-center">
-          <div className="h-5 w-5 rounded-full bg-[#915EFF]" />
-          <div className="violet-gradient h-40 w-1 sm:h-80" />
-        </div>
+    <section className="flex items-center justify-between h-screen px-10 bg-[#1a1a1a]">
+      {/* Left Text Block */}
+      <div className="max-w-xl">
+        <p className="text-sm tracking-widest text-gray-400">HI, I'M {config.hero.name.toUpperCase()}</p>
+        <h1 className="text-5xl sm:text-6xl font-extrabold mt-4 leading-tight">
+          I’M A <span className="text-[#915EFF]">Full Stack DEVELOPER</span>
+        </h1>
+        <p className="mt-6 text-gray-400 text-lg">
+          {config.hero.p[0]} <br /> {config.hero.p[1]}
+        </p>
 
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">{config.hero.name}</span>
-          </h1>
-          <p className={`${styles.heroSubText} text-white-100 mt-2`}>
-            {config.hero.p[0]} <br className="hidden sm:block" />
-            {config.hero.p[1]}
-          </p>
-        </div>
+        <a
+          href="#projects"
+          className="mt-8 inline-block border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+        >
+          VIEW MY PROJECTS
+        </a>
       </div>
 
-      {/* 3D Background */}
-      <ComputersCanvas />
-
-      {/* Scroll Hint */}
-      <div className="xs:bottom-10 absolute bottom-32 flex w-full items-center justify-center">
-        <a href="#about">
-          <div className="border-secondary flex h-[64px] w-[35px] items-start justify-center rounded-3xl border-4 p-2">
-            <motion.div
-              animate={{ y: [0, 24, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="bg-secondary mb-1 h-3 w-3 rounded-full"
-            />
-          </div>
-        </a>
+      {/* Right 3D Model */}
+      <div className="hidden lg:block w-1/2">
+        <ComputerCanvas />
       </div>
     </section>
   );

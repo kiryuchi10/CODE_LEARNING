@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kiryuchi10.github.io/flipbook_portfolio"
+  "homepage": "https://kiryuchi10.github.io/"
   ,
   "dependencies": {
     "cra-template": "1.3.0",

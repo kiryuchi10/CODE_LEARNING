@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
+import Hero from "./Hero"; // Uses your styled Hero section
 
-function Home() {
+const Home = () => {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>📘 Welcome to My Flipbook Portfolio</h1>
-      <p>This is the home page of your interactive portfolio.</p>
-      <p>Use the navigation bar to explore your resume, projects, and contact form.</p>
+    <div className="min-h-screen bg-[#1a1a1a] text-white flex flex-col">
+      {/* Top Nav could go here */}
+
+      {/* Hero Section */}
+      <Hero />
     </div>
   );
-}
+};
 
 export default Home;

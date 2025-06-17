@@ -3,7 +3,6 @@ import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
-import { projects } from "./Projects"; //Fix import name
 import { SectionWrapper } from "../hoc/SectionWrapper"; // 경로 유지
 import { fadeIn } from "../utils/motion";
 import { config } from "../constants/config";
@@ -54,12 +53,6 @@ const Works = () => {
       >
         {config.sections.works.content}
       </motion.p>
-
-      <div className="mt-20 flex flex-wrap gap-7 justify-center">
-       {projects.map((project, index) => (
-        <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
-      </div>
     </>
   );
 };
